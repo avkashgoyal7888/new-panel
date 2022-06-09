@@ -13,11 +13,11 @@
         <!-- third party css end -->
         <!-- App css -->
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">
-        <link href="assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
+        <!--<link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">-->
+        <link href="assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="swap">
     </head>
 
-    <body  data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":true, "showRightSidebarOnStart": true}'>
+    <body  data-layout-config='{"leftSideBarTheme":"dark"}' disabled>
         <!-- Begin page -->
         <div class="wrapper">
             <!-- ========== Left Sidebar Start ========== -->
@@ -143,10 +143,9 @@
                     <div class="navbar-custom">
                         <ul class="list-unstyled topbar-menu float-end mb-0">
 
-                            <li class="notification-list">
-                                <a class="nav-link end-bar-toggle" href="javascript: void(0);">
-                                    <i class="dripicons-gear noti-icon"></i>
-                                </a>
+                            <li class="notification-list" style="cursor: pointer;">
+                            <i class="dripicons-brightness-max noti-icon" onClick="swapStylesheet('assets/css/app.min.css')" id="light"></i>
+                            <i class="dripicons-brightness-medium noti-icon" onClick="swapStylesheet2('assets/css/app-dark.min.css')" id="dark" style="display:none;"></i>
                             </li>
 
                             <li class="dropdown notification-list">
@@ -427,6 +426,19 @@
 
         <!-- demo app -->
         <script src="assets/js/pages/demo.dashboard.js"></script>
+        <script>
+            function swapStylesheet(sheet) {
+            document.getElementById('swap').setAttribute('href', sheet);
+            document.getElementById('light').style.display = "none";
+            document.getElementById('dark').style.display = "block";
+             }
+
+            function swapStylesheet2(sheet) {
+            document.getElementById('swap').setAttribute('href', sheet);
+            document.getElementById('light').style.display = "block";
+            document.getElementById('dark').style.display = "none";
+             }
+        </script>
         <!-- end demo js-->
     </body>
 </html>
